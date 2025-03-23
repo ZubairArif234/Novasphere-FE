@@ -1,7 +1,8 @@
 import axios from "axios";
 // import { errorMessage } from "../globalFunctions";
 
-export const baseURL = "http://127.0.0.1:8000/api";
+// export const baseURL = "http://192.168.2.103:8001";
+export const baseURL = "https://angelic-exploration-production-8679.up.railway.app";
 
 // axios instance for json data
 const custAxios = axios.create({

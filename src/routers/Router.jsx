@@ -6,6 +6,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Register from "../components/auth/Register";
 import Login from "../components/auth/Login";
 import NotFound from "../pages/NotFound";
+import AuthRoute from "./AuthRoute";
 
 const Router = () => {
   // use protected routes for authenticated users (i.e: UserRoute & AdminRoute or make more if you've to)..
@@ -13,14 +14,15 @@ const Router = () => {
   return (
     <Routes>
       {/* Default Layout routes */}
-      <Route path="/" element={<DefaultLayout />}>
-        <Route path="/" element={<Home />} />
+      <Route path="/dashboard" element={<DefaultLayout />}>
+        <Route path="/dashboard" element={<AuthRoute Component={Home} />} />
+       
       </Route>
 
       {/* Auth routes */}
-      <Route path="/auth" element={<AuthLayout />}>
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/register" element={<Register />} />
+      <Route path="/" element={<AuthLayout />}>
+        <Route path="/" element={<Login />} />
+        <Route path="/sign-up" element={<Register />} />
       </Route>
 
       {/* Not found page */}
